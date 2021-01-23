@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CommanderAPI.Data;
 
 namespace CommanderAPI
 {
@@ -28,6 +29,8 @@ namespace CommanderAPI
         {
 
             services.AddControllers();
+
+            services.AddScoped<ICommandAPIRepo, MockCommandAPIRepo>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CommanderAPI", Version = "v1" });
